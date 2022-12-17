@@ -2,6 +2,7 @@ import json
 import os
 import random
 import sys
+import json
 
 from flask import Flask, render_template, send_from_directory, url_for
 from googleapiclient.discovery import build
@@ -33,7 +34,7 @@ def connect_gspread():
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_x509_cert_url": os.environ['client_x509_cert_url'],
         }
-    sys.stdout.write(j)
+    sys.stdout.write(json.dumps(j))
 
 
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(j, scope)
