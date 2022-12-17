@@ -20,7 +20,18 @@ def wadai_page():
 def connect_gspread():
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
     
-    j = os.environ['GS_JSON']
+    j ={
+        "type": "service_account",
+        "project_id": os.environ['project_id'],
+        "private_key_id": os.environ['private_key_id'],
+        "private_key": os.environ['private_key'],
+        "client_email": os.environ['client_email'],
+        "client_id": os.environ['client_id'],
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": os.environ['client_x509_cert_url'],
+        } 
 
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(j, scope)
     spread_sheet_id = "1_CBVgPVmPohr3ksuQP3sJe6Z5xiGmN0bcUQ23vJHsw0"
