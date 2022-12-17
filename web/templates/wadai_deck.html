@@ -20,27 +20,28 @@
         </div> 
         <div class='card-body'>
             <div class="row">
+            {% if random_wadai_list %}
+            {% for wadai in random_wadai_list %}
             <div class="card" style="width: 18rem;">
                 <img class="image_place" src="" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">話題カード</h5>
-                <p class="card-text">わだい例１</p>
+                <p class="card-text">{{wadai[0]}}</p>
                 </div>
             </div>
+            {% endfor %}
+            {% else %}
+            {% for i in range(3) %}
             <div class="card" style="width: 18rem;">
                 <img class="image_place" src="" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">話題カード</h5>
-                <p class="card-text">わだい例２</p>
+                <p class="card-text">話題例{{i}}</p>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img class="image_place" src="" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">話題カード</h5>
-                <p class="card-text">わだい例</p>
-                </div>
-            </div>
+            {% endfor %}
+            {% endif %}
+
             </div>
         <button onClick="window.location.reload();" class="btn btn-primary">話題変更</button>
         </div> 
