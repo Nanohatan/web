@@ -20,7 +20,7 @@ def wadai_page():
 def connect_gspread():
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
     
-    j = os.environ('GS_JSON')
+    j = os.environ['GS_JSON']
 
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(j, scope)
     spread_sheet_id = "1_CBVgPVmPohr3ksuQP3sJe6Z5xiGmN0bcUQ23vJHsw0"
