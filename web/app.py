@@ -25,7 +25,7 @@ def connect_gspread():
     j ={
         "type": "service_account",
         "project_id": os.environ['PI'],
-        "private_key_id": os.environ['PKI'],
+        "private_key_id": os.environ['PKI'].replace('\\n', '\n'),
         "private_key": os.environ['PK'],
         "client_email": os.environ['CE'],
         "client_id": os.environ['CI'],
