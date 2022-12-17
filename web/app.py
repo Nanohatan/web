@@ -31,7 +31,8 @@ def connect_gspread():
         "token_uri": "https://oauth2.googleapis.com/token",
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_x509_cert_url": os.environ['client_x509_cert_url'],
-        } 
+        }
+    print(j)
 
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(j, scope)
     spread_sheet_id = "1_CBVgPVmPohr3ksuQP3sJe6Z5xiGmN0bcUQ23vJHsw0"
