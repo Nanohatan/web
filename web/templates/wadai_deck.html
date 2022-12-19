@@ -21,12 +21,15 @@
         <div class='card-body'>
             <div class="row">
             {% if random_wadai_list %}
-            {% for wadai in random_wadai_list %}
+            {% for i in range(3) %}
             <div class="card" style="width: 18rem;">
                 <img class="image_place" src="" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">話題カード</h5>
-                <p class="card-text">{{wadai[0]}}</p>
+                <h5 class="card-title">話題カード{{i}}</h5>
+                <div>
+                    <p hidden id="wadai_{{i}}" class="card-text">{{random_wadai_list[i][0]}}</p>
+                    <button onclick="openWadai('{{i}}')" type="button" class="btn btn-outline-secondary">表示する</button>
+                </div>
                 </div>
             </div>
             {% endfor %}
@@ -43,7 +46,7 @@
             {% endif %}
 
             </div>
-        <button onClick="window.location.reload();" class="btn btn-primary">話題変更</button>
+        <button onclick="window.location.reload();" class="btn btn-primary">話題変更</button>
         </div> 
     </div>     
 </div> 
@@ -66,6 +69,10 @@
         });
     };
     setImage();
+    function openWadai(i){
+        wadai = document.getElementById('wadai_'+i);
+        wadai.hidden = false;
+    }
 </script>
 </body>
 </html>
